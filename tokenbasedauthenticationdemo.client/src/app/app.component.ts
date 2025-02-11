@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
   }
 
   getProducts() {
-    this.http.get<Product[]>('/products/getall').subscribe(
+    this.http.get<Product[]>('/products').subscribe(
       {
         next: (result) => {
           this.products = result;

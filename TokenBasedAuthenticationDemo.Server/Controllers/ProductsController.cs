@@ -16,7 +16,7 @@ namespace TokenBasedAuthenticationDemo.Server.Controllers
         }
 
 
-        [HttpGet("get-all")]
+        [HttpGet]
         public IEnumerable<Product> GetAll()
         {
             var products = _productsService.GetAllProducts();
