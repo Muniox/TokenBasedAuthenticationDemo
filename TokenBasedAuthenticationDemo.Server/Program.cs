@@ -1,3 +1,6 @@
+using TokenBasedAuthenticationDemo.Application.Extensions;
+using TokenBasedAuthenticationDemo.Infrastructure.Extensions;
+
 
 namespace TokenBasedAuthenticationDemo.Server
 {
@@ -13,6 +16,11 @@ namespace TokenBasedAuthenticationDemo.Server
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            // Added Infrastructure layer
+            builder.Services.AddInfrastructure(builder.Configuration);
+            // Added Application layer
+            builder.Services.AddApplictaion();
 
             var app = builder.Build();
 

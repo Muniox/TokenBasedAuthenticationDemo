@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35707.178 d17.12
+VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TokenBasedAuthenticationDemo.Server", "TokenBasedAuthenticationDemo.Server\TokenBasedAuthenticationDemo.Server.csproj", "{F0E370D0-7F92-4BD2-898C-80F1BCB5DFF3}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TokenBasedAuthenticationDemo.Api", "TokenBasedAuthenticationDemo.Api", "{DF70EC43-EE1A-4C43-A2B1-F0D5C7E4B8DB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TokenBasedAuthenticationDemo.Infrastructure", "TokenBasedAuthenticationDemo.Infrastructure\TokenBasedAuthenticationDemo.Infrastructure.csproj", "{E51AABC8-0A7C-42C3-8265-4AEBA87156AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TokenBasedAuthenticationDemo.Application", "TokenBasedAuthenticationDemo.Application\TokenBasedAuthenticationDemo.Application.csproj", "{5D1CF683-AEAA-4A48-AE85-689F10BAE345}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,10 @@ Global
 		{E51AABC8-0A7C-42C3-8265-4AEBA87156AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E51AABC8-0A7C-42C3-8265-4AEBA87156AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E51AABC8-0A7C-42C3-8265-4AEBA87156AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D1CF683-AEAA-4A48-AE85-689F10BAE345}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D1CF683-AEAA-4A48-AE85-689F10BAE345}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D1CF683-AEAA-4A48-AE85-689F10BAE345}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D1CF683-AEAA-4A48-AE85-689F10BAE345}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,5 +51,6 @@ Global
 		{F0E370D0-7F92-4BD2-898C-80F1BCB5DFF3} = {DF70EC43-EE1A-4C43-A2B1-F0D5C7E4B8DB}
 		{8C164E67-8E64-4936-897D-02F2F48D0867} = {DF70EC43-EE1A-4C43-A2B1-F0D5C7E4B8DB}
 		{E51AABC8-0A7C-42C3-8265-4AEBA87156AD} = {DF70EC43-EE1A-4C43-A2B1-F0D5C7E4B8DB}
+		{5D1CF683-AEAA-4A48-AE85-689F10BAE345} = {DF70EC43-EE1A-4C43-A2B1-F0D5C7E4B8DB}
 	EndGlobalSection
 EndGlobal

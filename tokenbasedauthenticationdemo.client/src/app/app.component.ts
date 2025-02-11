@@ -8,6 +8,14 @@ interface WeatherForecast {
   summary: string;
 }
 
+interface Product {
+  Id: string;
+  Name: string;
+  Description: string;
+  Price: number;
+  Quntity: number;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -16,10 +24,24 @@ interface WeatherForecast {
 export class AppComponent implements OnInit {
   public forecasts: WeatherForecast[] = [];
 
+  public products: Product[] = [];
+
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.getForecasts();
+    //this.getForecasts();
+    this.getProducts();
+  }
+
+  getProducts() {
+    this.http.get<Product[]>('/products/getall').subscribe(
+      {
+        next: (result) => {
+          this.products = result;
+          console.log(result);
+        }
+      }
+    )
   }
 
   getForecasts() {
