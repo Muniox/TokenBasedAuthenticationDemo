@@ -1,4 +1,6 @@
-﻿namespace TokenBasedAuthenticationDemo.Domain.Entities
+﻿
+
+namespace TokenBasedAuthenticationDemo.Domain.Entities
 {
     public class Product
     {

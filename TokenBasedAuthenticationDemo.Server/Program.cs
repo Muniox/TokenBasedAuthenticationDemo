@@ -1,6 +1,4 @@
-using TokenBasedAuthenticationDemo.Application.Extensions;
-using TokenBasedAuthenticationDemo.Infrastructure.Extensions;
-
+using Microsoft.OpenApi.Models;
 
 namespace TokenBasedAuthenticationDemo.Server
 {
@@ -15,12 +13,34 @@ namespace TokenBasedAuthenticationDemo.Server
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGen(options =>
+            {
+                options.AddSecurityDefinition("BearerAuth", new OpenApiSecurityScheme
+                {
+                    In = ParameterLocation.Header,
+                    Description = "Enter proper JWT token",
+                    Name = "Authorization",
+
+                });
+            });
+            );
+            //builder.Services.AddCors(options =>
+            //{
+            //    options.AddPolicy("CorsPolicy", builder =>
+            //    {
+            //        builder.AllowAnyHeader()
+            //            .AllowAnyMethod()
+            //            .WithOrigins("*")
+            //            .AllowCredentials();
+            //    });
+            //});
+
+            // Added Application layer
+            builder.Services.AddApplictaion();
 
             // Added Infrastructure layer
             builder.Services.AddInfrastructure(builder.Configuration);
-            // Added Application layer
-            builder.Services.AddApplictaion();
+
 
             var app = builder.Build();
 
@@ -34,7 +54,13 @@ namespace TokenBasedAuthenticationDemo.Server
                 app.UseSwaggerUI();
             }
 
+            //app.UseCors("CorsPolicy");
+
+            app.MapIdentityApi<IdentityUser>();
+
             app.UseHttpsRedirection();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
