@@ -29,30 +29,6 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    //this.getForecasts();
-    this.getProducts();
-  }
-
-  getProducts() {
-    this.http.get<Product[]>('/products').subscribe(
-      {
-        next: (result) => {
-          this.products = result;
-          console.log(result);
-        }
-      }
-    )
-  }
-
-  getForecasts() {
-    this.http.get<WeatherForecast[]>('/weatherforecast').subscribe(
-      (result) => {
-        this.forecasts = result;
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
   }
 
   title = 'tokenbasedauthenticationdemo.client';

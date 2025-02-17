@@ -7,6 +7,8 @@ const PROXY_CONFIG = [
   {
     context: [
       "/products",
+      "/login",
+      "/refresh"
     ],
     target,
     secure: false

@@ -1,4 +1,7 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.OpenApi.Models;
+using TokenBasedAuthenticationDemo.Application.Extensions;
+using TokenBasedAuthenticationDemo.Infrastructure.Extensions;
 
 namespace TokenBasedAuthenticationDemo.Server
 {
@@ -20,10 +23,26 @@ namespace TokenBasedAuthenticationDemo.Server
                     In = ParameterLocation.Header,
                     Description = "Enter proper JWT token",
                     Name = "Authorization",
+                    Scheme = "Bearer",
+                    BearerFormat = "JWT",
+                    Type = SecuritySchemeType.Http
+                });
 
+                options.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "BearerAuth"
+                            }
+                        },
+                        Array.Empty<string>()
+                    }
                 });
             });
-            );
             //builder.Services.AddCors(options =>
             //{
             //    options.AddPolicy("CorsPolicy", builder =>
@@ -41,6 +60,7 @@ namespace TokenBasedAuthenticationDemo.Server
             // Added Infrastructure layer
             builder.Services.AddInfrastructure(builder.Configuration);
 
+            builder.Services.AddAuthorization();
 
             var app = builder.Build();
 
